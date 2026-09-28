@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+        }
+
+        #d {
+            width: 250px;
+            height: 50px;
+            font-size: 25px;
+            text-align: right;
+        }
+
+        button {
+            width: 55px;
+            height: 50px;
+            margin: 3px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Calculator</h2>
+
+<input id="d" readonly><br><br>
+
+<button onclick="d.value=''">AC</button>
+<button onclick="d.value=d.value.slice(0,-1)">⌫</button>
+<button onclick="d.value+='%'">%</button>
+<button onclick="d.value+='/'">÷</button><br>
+
+<button onclick="d.value+='7'">7</button>
+<button onclick="d.value+='8'">8</button>
+<button onclick="d.value+='9'">9</button>
+<button onclick="d.value+='*'">×</button><br>
+
+<button onclick="d.value+='4'">4</button>
+<button onclick="d.value+='5'">5</button>
+<button onclick="d.value+='6'">6</button>
+<button onclick="d.value+='-'">−</button><br>
+
+<button onclick="d.value+='1'">1</button>
+<button onclick="d.value+='2'">2</button>
+<button onclick="d.value+='3'">3</button>
+<button onclick="d.value+='+'">+</button><br>
+
+<button onclick="d.value+='0'">0</button>
+<button onclick="d.value+='.'">.</button>
+<button onclick="d.value=eval(d.value)">=</button>
+
+</body>
+</html>

@@ -13,7 +13,7 @@
       width: 300px;
       margin: 40px auto;
       padding: 20px;
-      background: white;
+      background: rgb(221, 102, 102);
     }
 
     input, select, button {
@@ -21,24 +21,27 @@
       padding: 8px;
       margin: 5px 0;
       box-sizing: border-box;
+      border-radius: 15px;
     }
 
-    input[type="radio"],
-    input[type="checkbox"] {
+    input[type="checkbox"],
+    input[type="radio"] {
       width: auto;
     }
 
     p {
-      color: red;
+      color: rgb(251, 255, 0);
       font-size: 13px;
       margin: 2px;
     }
 
-    button {
-      background: green;
-      color: white;
+    button:hover {
+      background: rgb(9, 233, 20);
+      color: rgb(13, 167, 90);
       border: 0;
       cursor: pointer;
+      border-radius: 45px;
+      
     }
   </style>
 </head>
@@ -84,7 +87,7 @@
   <label>I agree to terms</label>
   <p id="t"></p>
 
-  <button type="submit">Register</button>
+  <button type ="submit">Register</button>
 
 </form>
 
@@ -188,9 +191,6 @@ function validate() {
 
     ok = false;
   }
-
-
-  // TERMS
   if (!terms.checked) {
     document.getElementById("t").innerHTML =
       "Please accept the terms";
@@ -198,8 +198,6 @@ function validate() {
     ok = false;
   }
 
-
-  // SUCCESS
   if (ok) {
     alert("✓ Registration Successful!");
   }
@@ -208,7 +206,6 @@ function validate() {
 }
 
 </script>
-----
 
 </body>
 </html>
