@@ -73,7 +73,7 @@ function loadCartoons() {
     message.textContent = "⏳ Loading cartoons...";
     cartoons.innerHTML = "";
 
-    fetch("https://raw.githubusercontent.com/chethanp992006-lgtm/FD-lab/refs/heads/main/Program%208/data.json")
+    fetch("https://raw.githubusercontent.com/samyak2403/daily-movies-api/main/movies/cartoons/cartoons.json")
 
     .then(response => {
 
@@ -91,7 +91,6 @@ function loadCartoons() {
                 <div class="card">
                     <img src="${cartoon.thumbnail}" alt="${cartoon.title}">
                     <h3>${cartoon.title}</h3>
-                    <p>${cartoon.uploader}</p>
                 </div>
             `;
         });
