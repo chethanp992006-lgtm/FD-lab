@@ -2,55 +2,6 @@
 <html>
 <head>
     <title>Cartoon Gallery - Fetch API</title>
-
-    <style>
-        body {
-            font-family: Arial;
-            background: #f4f4f4;
-            margin: 30px;
-            text-align: center;
-        }
-
-        button {
-            padding: 10px 20px;
-            border: 0;
-            border-radius: 6px;
-            background: #2563eb;
-            color: white;
-            cursor: pointer;
-        }
-
-        #message {
-            font-weight: bold;
-            margin: 20px;
-        }
-
-        #cartoons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .card {
-            width: 220px;
-            background: white;
-            padding: 12px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px #bbb;
-        }
-
-        .card img {
-            width: 100%;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .card h3 {
-            margin: 10px 0;
-        }
-    </style>
 </head>
 
 <body>
@@ -58,51 +9,40 @@
 <h1>Cartoon Gallery</h1>
 
 <button onclick="loadCartoons()">Load Cartoons</button>
-
-<p id="message">Click the button to load cartoons...</p>
-
-<div id="cartoons"></div>
-
+<table id="cartoons"  border="1">
+    <tr>
+        <th>title</th>
+        <th>image</th>
+        <th>upload</th>
+    </tr>
+</table>
 <script>
 
 function loadCartoons() {
 
     let message = document.querySelector("#message");
-    let cartoons = document.querySelector("#cartoons");
-
-    message.textContent = "⏳ Loading cartoons...";
-    cartoons.innerHTML = "";
+    let cartoons = document.querySelector("#Cartoon");
 
     fetch("https://raw.githubusercontent.com/samyak2403/daily-movies-api/main/movies/cartoons/cartoons.json")
 
-    .then(response => {
-
-        if (!response.ok)
-            throw new Error("Failed to load cartoon data");
-
-        return response.json();
-    })
+    .then(response =>  response.json())
 
     .then(data => {
 
-        data.movies.forEach(cartoon => {
+        data.movies.forEach(movie => {
 
-            cartoons.innerHTML += `
-                <div class="card">
-                    <img src="${cartoon.thumbnail}" alt="${cartoon.title}">
-                    <h3>${cartoon.title}</h3>
-                </div>
+            document.getElementById("cartoons").innerHTML += `
+                <tr>
+                    <td>${movie.title}</td>
+                    <td><img src="${movie.thumbnail}" width="100"></td>
+                    <td>"${movie.uploader}"</td>
+                </tr>
             `;
         });
 
         message.textContent =
-            `✅ ${data.movies.length} cartoons loaded`;
+            ` ${data.movies.length} cartoons loaded`;
     })
-
-    .catch(error => {
-
-        message.textContent = "❌ " + error.message;
-    });
 }
 
 </script>
